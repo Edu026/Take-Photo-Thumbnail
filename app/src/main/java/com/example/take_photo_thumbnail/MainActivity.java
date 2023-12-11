@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                         Bitmap imageBitmap = (Bitmap) extras.get("data");
 
                         ImageView imageView = findViewById(R.id.imageView);
-                        //imageView.setImageBitmap(imageBitmap);
+                        imageView.setImageBitmap(imageBitmap);
 
                     }
                 }
