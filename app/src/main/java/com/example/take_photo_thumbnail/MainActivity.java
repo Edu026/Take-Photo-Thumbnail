@@ -18,7 +18,7 @@ import android.widget.ImageView;
 
 
 public class MainActivity extends AppCompatActivity {
-    ActivityResultLauncher<Intent> someActivityResultLauncher = someActivityResultLauncher = registerForActivityResult(
+    ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
@@ -30,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
                         Bitmap imageBitmap = (Bitmap) extras.get("data");
 
                         ImageView imageView = findViewById(R.id.imageView);
-                        imageView.setImageBitmap(imageBitmap);
+                        //imageView.setImageBitmap(imageBitmap);
 
                     }
                 }
             });
 
-    ActivityResultLauncher<Intent> someActivityResultLauncher2 = someActivityResultLauncher = registerForActivityResult(
+    ActivityResultLauncher<Intent> someActivityResultLauncher2 = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
