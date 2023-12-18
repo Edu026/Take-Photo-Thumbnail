@@ -104,6 +104,19 @@ public class MainActivity extends AppCompatActivity {
         btnSelect = findViewById(R.id.button);
         btnGalery = findViewById(R.id.button2);
         btnFullSize = findViewById(R.id.fullSize);
+
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        if (storageDir != null) {
+            File[] photos = storageDir.listFiles();
+            int indexLastPhoto = photos.length-1;
+            File photoFile = photos[indexLastPhoto];
+            Uri photoURI = FileProvider.getUriForFile(MainActivity.this,
+                    "com.example.take_photo_thumbnail.fileprovider",
+                    photoFile);
+            ImageView imageView = findViewById(R.id.imageView);
+            imageView.setImageURI(photoURI);
+        }
+
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
                 //Launch activity to get result
                 someActivityResultLauncher2.launch(intent);
+
             }
         });
        btnFullSize.setOnClickListener(new View.OnClickListener() {
