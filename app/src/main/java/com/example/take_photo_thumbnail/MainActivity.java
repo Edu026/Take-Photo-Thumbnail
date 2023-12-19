@@ -110,9 +110,7 @@ public class MainActivity extends AppCompatActivity {
             File[] photos = storageDir.listFiles();
             int indexLastPhoto = photos.length-1;
             File photoFile = photos[indexLastPhoto];
-            Uri photoURI = FileProvider.getUriForFile(MainActivity.this,
-                    "com.example.take_photo_thumbnail.fileprovider",
-                    photoFile);
+            Uri photoURI = Uri.fromFile(photoFile);
             ImageView imageView = findViewById(R.id.imageView);
             imageView.setImageURI(photoURI);
         }
